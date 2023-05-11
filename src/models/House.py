@@ -1,4 +1,3 @@
-from models.rats.RatInterface import RatInterface
 
 
 class House:

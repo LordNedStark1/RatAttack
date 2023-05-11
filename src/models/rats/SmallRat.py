@@ -1,4 +1,4 @@
-from src.models.rats.RatInterface import RatInterface
+from RatAttack.src.models.rats.RatInterface import RatInterface
 
 
 class SmallRat(RatInterface):

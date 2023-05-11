@@ -1,4 +1,4 @@
-from src.models.rats.RatInterface import RatInterface
+from RatAttack.src.models.rats.RatInterface import RatInterface
 
 
 class MediumRat(RatInterface):
@@ -12,4 +12,4 @@ class MediumRat(RatInterface):
         return "Am a Medium rat"
 
     def __repr__(self):
-        return "I will hunt you alittle"
+        return "I will hunt you a little"

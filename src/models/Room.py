@@ -1,5 +1,3 @@
-from models.rats.RatInterface import RatInterface
-
 
 class Room:
     def __init__(self):

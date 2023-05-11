@@ -1,8 +1,8 @@
 from random import random, randint
 
-from models.rats.BigRat import BigRat
-from models.rats.MediumRat import MediumRat
-from models.rats.SmallRat import SmallRat
+from RatAttack.src.models.rats.BigRat import BigRat
+from RatAttack.src.models.rats.MediumRat import MediumRat
+from RatAttack.src.models.rats.SmallRat import SmallRat
 
 
 class RatFactory:
