@@ -2,6 +2,7 @@ from RatAttack.src.models.rats.RatInterface import RatInterface
 
 
 class MediumRat(RatInterface):
+
     def attack(self):
         pass
 
