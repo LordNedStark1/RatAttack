@@ -1,7 +1,8 @@
 
-
 class IdGenerator:
 
     @staticmethod
-    def generate_id():
-        return id()
+    def generate_id(obj):
+        return id(obj)
+
+
