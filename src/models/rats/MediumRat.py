@@ -2,6 +2,7 @@ from src.models.rats.RatInterface import RatInterface
 
 
 class MediumRat(RatInterface):
+
     def attack(self):
         pass
 
@@ -13,3 +14,5 @@ class MediumRat(RatInterface):
 
     def __repr__(self):
         return "I will hunt you alittle"
+
+

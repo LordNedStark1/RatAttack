@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
 
-class RoomServiceInterface(ABC):
+class RatRepositoryInterface(ABC):
 
     @abstractmethod
-    def create_new_room(self):
+    def save(self, rat):
         pass
 
     @abstractmethod
-    def load_collectables(self, room_id):
+    def delete(self, rat):
         pass
