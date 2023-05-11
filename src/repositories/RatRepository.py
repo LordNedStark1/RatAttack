@@ -2,10 +2,10 @@ from abc import ABC
 
 
 class RatRepositoryInterface(ABC):
-    rat = []
+    rats = []
     
-    def save(rat):
-        rat.append(rat)
+    def save(self, rat):
+        self.rats.append(rat)
     
-    def delete(rat):
-        pass
+    def delete(self, rat):
+        self.rats.remove(rat)
