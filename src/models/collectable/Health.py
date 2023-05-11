@@ -1,6 +1,10 @@
+import random
+
 
 class Health:
 
     @staticmethod
-    def supply(self):
-        pass
+    def supply():
+        health = random.randint(1, 100)
+
+        return health
