@@ -7,6 +7,6 @@ app = Flask(__name__)
 def hello_world():  # put application's code here
     return 'Hello World!'
 
-  #hoollaaa
+
 if __name__ == '__main__':
     app.run()
