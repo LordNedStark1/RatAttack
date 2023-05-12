@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from models.Room import Room
+from RatAttack.src.models.Room import Room
 
 
 class RoomRepositoryInterface(ABC):

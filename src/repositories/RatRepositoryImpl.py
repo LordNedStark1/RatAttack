@@ -1,5 +1,5 @@
-from models.rats.RatInterface import RatInterface
-from repositories.RatRepositoryIntrface import RatRepositoryInterface
+from RatAttack.src.models.rats.RatInterface import RatInterface
+from RatAttack.src.repositories.RatRepositoryIntrface import RatRepositoryInterface
 
 
 class RatRepositoryImpl(RatRepositoryInterface):
