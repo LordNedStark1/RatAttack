@@ -1,12 +1,9 @@
-from RatAttack.src.models.rats.RatInterface import RatInterface
+from models.AttackInterface import Attacker
 
 
-class MediumRat(RatInterface):
+class MediumRat(Attacker):
 
     def attack(self):
-        pass
-
-    def escape(self):
         pass
 
     def __str__(self):

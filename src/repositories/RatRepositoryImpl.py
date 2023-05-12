@@ -1,4 +1,4 @@
-from models.rats.RatInterface import RatInterface
+from models.AttackInterface import RatInterface
 from repositories.RatRepositoryIntrface import RatRepositoryInterface
 
 
