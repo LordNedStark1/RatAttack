@@ -1,4 +1,4 @@
-from RatAttack.src.models.collectable.Money import Money
+from models.collectable.Money import Money
 
 
 class Player:

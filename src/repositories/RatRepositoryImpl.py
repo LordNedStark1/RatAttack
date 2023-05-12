@@ -1,12 +1,11 @@
-from RatAttack.src.models.rats.RatInterface import RatInterface
 from RatAttack.src.repositories.RatRepositoryIntrface import RatRepositoryInterface
 
 
 class RatRepositoryImpl(RatRepositoryInterface):
     rats = {}
-    
+
     def save(self, rat: RatInterface):
         self.rats[rat] = rat
-    
+
     def delete(self, rat):
         self.rats.remove(rat)

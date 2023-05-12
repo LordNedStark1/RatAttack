@@ -17,7 +17,9 @@ class Player_Repository_Test(unittest.TestCase):
 
     def test_save_user_multiple_times_count_does_not_increment(self):
         self.player_repo.save_player(self.player)
+        print("The first player is: "+self.player.get_player_id())
         self.player_repo.save_player(self.player)
+        print("The second player is: "+self.player.get_player_id())
         self.assertEqual(1, len(self.player_repo.get_all_players()))
 
     def test_find_player_by_id(self):

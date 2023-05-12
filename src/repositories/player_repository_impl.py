@@ -4,12 +4,28 @@ from RatAttack.src.repositories.player_repository_interface import Player_Reposi
 
 
 class Player_Repository_Implementation(Player_Repository_Interface):
-    database_of_players = {}
+    def __init__(self):
+        self.database_of_players = {}
 
     def save_player(self, player: Player) -> Player:
         if self.player_does_not_exist(player):
             self._save_new_player(player)
         return self._existing_player(player)
+
+    def player_does_not_exist(self, player: Player):
+        if player not in self.database_of_players and player.get_player_id() == "":
+            return True
+        return False
+
+    def _save_new_player(self, player: Player):
+        player.set_player_id(IdGenerator.generate_player_id())
+        self.database_of_players.update({player.get_player_id(): player})
+
+    def _existing_player(self, player: Player) -> Player | None:
+        found_player: Player = self.find_player_by_id(player.get_player_id())
+        if found_player is not None:
+            return player
+        return None
 
     def find_player_by_id(self, player_id) -> Player | None:
         if player_id in self.database_of_players:
@@ -32,18 +48,3 @@ class Player_Repository_Implementation(Player_Repository_Interface):
 
     def get_all_players(self) -> dict[str, Player]:
         return self.database_of_players
-
-    def player_does_not_exist(self, player: Player):
-        if player not in self.database_of_players:
-            return True
-        return False
-
-    def _save_new_player(self, player: Player):
-        player.set_player_id(IdGenerator.generate_player_id())
-        self.database_of_players.update({player.get_player_id(): player})
-
-    def _existing_player(self, player: Player) -> Player | None:
-        found_player: Player = self.find_player_by_id(player.get_player_id())
-        if found_player is not None:
-            return player
-        return None

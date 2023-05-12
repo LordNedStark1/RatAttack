@@ -11,4 +11,7 @@ class Room:
     def get_room_id(self):
         return self._room_id
 
+    def get_rats_id(self):
+        return self._room_id
+
 
