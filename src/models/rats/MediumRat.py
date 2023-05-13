@@ -1,7 +1,8 @@
-from models.AttackInterface import Attacker
+
+from models.rats.ParentRat import ParentRat
 
 
-class MediumRat(Attacker):
+class MediumRat(ParentRat):
 
     def attack(self):
         pass
@@ -10,4 +11,4 @@ class MediumRat(Attacker):
         return "Am a Medium rat"
 
     def __repr__(self):
-        return "I will hunt you a little"
+        return "Am a Medium rat"

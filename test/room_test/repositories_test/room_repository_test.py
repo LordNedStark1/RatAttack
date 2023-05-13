@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from RatAttack.src.models.Room import Room
-from RatAttack.src.repositories.room_repository_impl import RoomRepositoryImpl
-from RatAttack.src.repositories.room_repository_interface import RoomRepositoryInterface
+from models.house_properties.Room import Room
+from repositories.room_repository_impl import RoomRepositoryImpl
+from repositories.room_repository_interface import RoomRepositoryInterface
 
 
 class RoomRepositoryTest(TestCase):

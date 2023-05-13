@@ -26,6 +26,7 @@ class House:
 
     def get_player(self):
         return self._player
+
     def to_dict(self):
         return {
             'house_name': self._house_name,
@@ -37,4 +38,3 @@ class House:
 
     def to_json(self):
         return json.dumps(self.to_dict())
-

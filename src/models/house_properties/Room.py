@@ -1,9 +1,10 @@
+import json
+
 
 class Room:
     def __init__(self):
-        self._room_id = 0
-        self._rats = []
-        self._collectable = []
+        self._room_id = ""
+        self._room_locations = []
 
     def set_room_id(self, room_id):
         self._room_id = room_id
@@ -11,8 +12,11 @@ class Room:
     def get_room_id(self):
         return self._room_id
 
-    def get_rats_id(self):
-        return self._room_id
+    def get_room_locations(self):
+        return self._room_locations
+
+    def set_room_locations(self, locations):
+        self._room_locations = locations
 
     # Todo method below is to be verified
     def to_dict(self):
@@ -26,4 +30,3 @@ class Room:
 
     def to_json(self):
         return json.dumps(self.to_dict())
-

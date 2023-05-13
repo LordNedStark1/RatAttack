@@ -1,5 +1,13 @@
-from abc import ABC
+from abc import ABC, abstractmethod
+
+from models.player.Player import Player
 
 
 class HouseServiceInterface(ABC):
-    pass
+    @abstractmethod
+    def creat_new_house(self, player: Player):
+        pass
+
+    @abstractmethod
+    def find_house_by_id(self, house_id):
+        pass

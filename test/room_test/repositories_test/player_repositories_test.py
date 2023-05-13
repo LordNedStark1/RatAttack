@@ -1,7 +1,7 @@
 import unittest
 
-from RatAttack.src.models.player.Player import Player
-from RatAttack.src.repositories.player_repository_impl import Player_Repository_Implementation
+from models.player.Player import Player
+from repositories.player_repository_impl import Player_Repository_Implementation
 
 
 class Player_Repository_Test(unittest.TestCase):
