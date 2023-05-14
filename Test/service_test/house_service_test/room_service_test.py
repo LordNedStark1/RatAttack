@@ -29,3 +29,7 @@ class RoomServiceTest(TestCase):
                 count += 1
         if count > 3: return False
         if 0 < count <= 3: return True
+
+    def test_health_in_room(self):
+        created_room: Room = self.room_Service.create_new_room()
+        locations: Location = created_room.get_room_locations()

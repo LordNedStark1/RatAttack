@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-from models.AttackInterface import Attacker
+from models.Attacker import Attacker
 
 
 class ParentRat(Attacker):

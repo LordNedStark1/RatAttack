@@ -1,4 +1,4 @@
-from models.collectable.Money import Money
+from models.collectable.money.Money import Money
 
 
 class Player:

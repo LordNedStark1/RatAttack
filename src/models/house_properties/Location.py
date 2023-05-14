@@ -5,7 +5,7 @@ class Location:
     def __init__(self):
         self.__location_id = ""
         self.__rat = None
-        self.__collectable = None
+        self.__collectable = []
 
     def set_location_id(self, location_id):
         self.__location_id = location_id
@@ -20,7 +20,7 @@ class Location:
         return self.__rat
 
     def set_collectables(self, collectable):
-        self.__collectable = collectable
+        self.__collectable.append(collectable)
 
     def get_collectables(self):
         return self.__collectable
