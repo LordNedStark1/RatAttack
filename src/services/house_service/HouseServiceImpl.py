@@ -6,6 +6,10 @@ from services.room_service.RoomServiceImpl import RoomServiceImpl
 from services.room_service.RoomServiceInterface import RoomServiceInterface
 
 
+def converting_house_to_dictionary(house):
+     # return house.to_json()
+    return house.to_dict()
+
 class HouseServiceImpl(HouseServiceInterface):
 
     mongo_house_repo: MongoDbHouseRepository = MongoDbHouseRepository.get_instance()
@@ -16,8 +20,10 @@ class HouseServiceImpl(HouseServiceInterface):
         house.set_house_name(player.get_player_name())
 
         created_room = self.room_service.create_new_room()
-        # house_dict = converting_house_to_dictionary(house)
-        # self.mongo_house_repo.save(house_dict)
+        house.set_rooms(created_room)
+
+        house_dict = converting_house_to_dictionary(house)
+        self.mongo_house_repo.save(house_dict)
 
     def find_house_by_id(self, house_id):
         return self.mongo_house_repo.find_house_by_id(house_id)

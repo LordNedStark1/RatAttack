@@ -9,6 +9,11 @@ class House:
         self._total_number_of_rooms = 6
         self._rooms = []
 
+    def set_rooms(self,rooms):
+        self._rooms = rooms
+
+    def get_rooms(self):
+        return self._rooms
     def set_house_id(self, house_id):
         self._house_id = house_id
 
@@ -31,9 +36,9 @@ class House:
         return {
             'house_name': self._house_name,
             'house_id': self._house_id,
-            "player_id": self._player_id,
-            "number_of_rooms": self._total_number_of_rooms,
-            'rooms': [room.__dict__ for room in self._rooms]
+            'player': self._player,
+            "number_of_rooms": self._total_number_of_rooms
+            # 'rooms': [room.__dict__ for room in self._rooms]
         }
 
     def to_json(self):

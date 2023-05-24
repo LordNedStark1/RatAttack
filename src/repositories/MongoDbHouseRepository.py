@@ -34,11 +34,15 @@ class MongoDbHouseRepository(HouseRepositoryInterface):
 
     def save(self, house_dict):
         result = self.collection.insert_one(house_dict)
+        print(result.inserted_id)
         return result.inserted_id
 
     def find_house_by_id(self, house_id):
         data = self.collection.find_one({'_id': house_id})
         if data is not None:
-            return data
+            return self._destructured(data)
         else:
             return 'Game not found', 404
+
+    def _destructured(self, data):
+        pass

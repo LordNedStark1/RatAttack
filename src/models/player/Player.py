@@ -8,7 +8,7 @@ class Player:
         self._player_id: str = ""
         self._age: int = 0
         self._health: int = 0
-        self._money = Money()
+        self._money: Money = None
 
     def set_player_name(self, player_name: str) -> None:
         self._name = player_name
