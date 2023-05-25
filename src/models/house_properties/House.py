@@ -3,6 +3,7 @@ from flask import json
 
 class House:
     def __init__(self):
+        self._total_number_of_rats = None
         self._house_id = ""
         self._house_name = ""
         self._player = None
@@ -53,3 +54,6 @@ class House:
 
     def to_json(self):
         return json.dumps(self.to_dict())
+
+    def set_total_number_of_rats(self, rat_count):
+        self._total_number_of_rats = rat_count

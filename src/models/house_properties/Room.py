@@ -25,7 +25,7 @@ class Room:
             location_list.append(location.to_dict())
         return {
             'room_id': self._room_id,
-            'room_location': location_list
+            'room_locations': location_list
         }
 
     def to_json(self):

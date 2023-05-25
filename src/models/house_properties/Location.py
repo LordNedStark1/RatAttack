@@ -26,7 +26,7 @@ class Location:
         return self.__collectable
 
     def to_dict(self):
-        rat = ''
+        rat = None
         if self.__rat is not None:
             rat = self.__rat.to_dict()
         return {

@@ -11,9 +11,13 @@ from models.rats.SmallRat import SmallRat
 class RatFactory:
 
     @staticmethod
+    def random_number(range):
+        return secrets.randbelow(range - 1 + 1) + 1
+
+    @staticmethod
     def create_new_rat():
         rat = ""
-        option = secrets.randbelow(3 - 1 + 1) + 1
+        option = RatFactory.random_number(3)
         match option:
             case 1:
                 rat = SmallRat()
@@ -26,34 +30,27 @@ class RatFactory:
 
     @staticmethod
     def load_rats(house: House, count=0):
-        pass
+        rooms = house.get_rooms()
+        rat_count = 0
 
-    @staticmethod
-    def load_rat(room: Room, count=0):
-        locations = room.get_room_locations()
+        rooms_index = RatFactory.random_number(5)
+        if rooms_index is not None:
+            if count < 6:
 
-        random_index = secrets.randbelow(5 - 1 + 1) + 1
-        if random_index is not None:
-            if count < 3:
-                if locations[random_index].get_rat() is None:
-                    locations[random_index].set_rat(RatFactory.create_new_rat())
+                locations = rooms[rooms_index].get_room_locations()
 
-                    count += 1
-                    RatFactory.load_rats(room, count)
-            return room
+                locations_index = RatFactory.random_number(5)
+                if locations_index is not None:
+                    if locations[locations_index].get_rat() is None:
+                        rat_count += 1
+                        locations[locations_index].set_rat(RatFactory.create_new_rat())
+
+                        count += 1
+                        RatFactory.load_rats(house, count)
+
+        house.set_total_number_of_rats(rat_count)
+        return house
 
 
-room = Room()
-list = []
 
-for i in range(8):
-    location = Location()
-    list.append(location)
 
-room.set_room_locations(list)
-
-room1 = RatFactory.load_rats(room)
-
-locatons = room1.get_room_locations()
-# for i in range(8):
-#     print(locatons[i].get_rat())
