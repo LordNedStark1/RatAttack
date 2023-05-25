@@ -1,3 +1,6 @@
+from bson import ObjectId
+
+from AppUtils.factory.RatFactory import RatFactory
 from models.house_properties.House import House
 from models.player.Player import Player
 from repositories.MongoDbHouseRepository import MongoDbHouseRepository
@@ -18,12 +21,24 @@ class HouseServiceImpl(HouseServiceInterface):
     def creat_new_house(self, player: Player):
         house: House = House()
         house.set_house_name(player.get_player_name())
+        house.set_player(player)
 
         created_room = self.room_service.create_new_room()
         house.set_rooms(created_room)
 
         house_dict = converting_house_to_dictionary(house)
-        self.mongo_house_repo.save(house_dict)
+        house_id = self.mongo_house_repo.save(house_dict)
+
+        return house_id
+
+    def __load_rats(self, house: House):
+        return RatFactory.load_rats(house)
+
 
     def find_house_by_id(self, house_id):
-        return self.mongo_house_repo.find_house_by_id(house_id)
+        house_dict = self.mongo_house_repo.find_house_by_id(house_id)
+        return house_dict
+
+
+
+

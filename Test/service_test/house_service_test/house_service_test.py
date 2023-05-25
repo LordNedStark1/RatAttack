@@ -22,24 +22,26 @@ class HouseServiceTest(TestCase):
     def test_that_the_house_has_at_least_three_rat_at_most_four(self):
         house_id = self.house_service.creat_new_house(self.player)
         self.assertIsNotNone(self.house_service.find_house_by_id(house_id))
-        new_house = self.house_service.find_house_by_id(house_id)
-        self.check_presence_of_rats(new_house)
+        new_house_dict = self.house_service.find_house_by_id(house_id)
+        self.check_presence_of_rats(new_house_dict)
 
-    def check_presence_of_rats(self, house: House):
-        rooms = house.get_rooms()
+    def check_presence_of_rats(self, house_dict):
+        rooms = house_dict.get('rooms')
+        
         count = self.__is_three_rat_present(rooms)
-        print(count)
+
 
     def __is_three_rat_present(self, rooms):
         count = 0
         for value in rooms:
             room: Room = value
-            locations = room.get_room_locations()
+            locations = room['room_location'][1]
             count += self._check_locations(locations)
         return count
 
     def _check_locations(self, locations):
         count = 0
+        print(locations)
         for local in locations:
             location: Location = local
             if location.get_rat() is not None:

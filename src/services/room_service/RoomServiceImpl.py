@@ -13,9 +13,9 @@ class RoomServiceImpl(RoomServiceInterface):
         locations = self.location_service.create_room_location()
         room.set_room_locations(locations)
 
-        rat_loaded_room = self.__load_rats(room)
+        # rat_loaded_room = self.__load_rats(room)
 
-        # return rat_loaded_room
+
         return room
 
     def load_collectables(self, room: Room):

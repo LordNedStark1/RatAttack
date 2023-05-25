@@ -34,7 +34,7 @@ class MongoDbHouseRepository(HouseRepositoryInterface):
 
     def save(self, house_dict):
         result = self.collection.insert_one(house_dict)
-        print(result.inserted_id)
+
         return result.inserted_id
 
     def find_house_by_id(self, house_id):
@@ -45,4 +45,13 @@ class MongoDbHouseRepository(HouseRepositoryInterface):
             return 'Game not found', 404
 
     def _destructured(self, data):
-        pass
+        house_dict = {}
+        i, *keys_list = data.keys()
+        j, *values_list = data.values()
+        house_dict[i] = j
+        for i in range(len(keys_list)):
+            house_dict[keys_list[i]] = values_list[i]
+
+
+        return house_dict
+

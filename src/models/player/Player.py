@@ -39,3 +39,12 @@ class Player:
 
     def get_player_money(self) -> Money:
         return self._money
+
+    def to_dict(self):
+        return {
+            'name': self._name,
+            'player_id': self._player_id,
+            'age': self._age,
+            'health': self._health,
+            'money': self._money
+        }

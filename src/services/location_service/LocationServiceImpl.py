@@ -7,7 +7,7 @@ class LocationServiceImpl(LocationServiceInterface):
         location_list = []
         for i in range(1, 7):
             location: Location = Location()
-            location.set_location_id(i)
+            location.set_location_id(i )
             location_list.append(location)
 
         return location_list

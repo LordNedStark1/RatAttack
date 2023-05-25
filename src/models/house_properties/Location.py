@@ -25,6 +25,16 @@ class Location:
     def get_collectables(self):
         return self.__collectable
 
+    def to_dict(self):
+        rat = ''
+        if self.__rat is not None:
+            rat = self.__rat.to_dict()
+        return {
+            'location_id': self.__location_id,
+            'rat': rat,
+            'collectable': self.__collectable
+        }
+
     def __repr__(self):
         return f"Location(location_id={self.__location_id}, rat={self.__rat}," \
                f" collectable={self.__collectable})"

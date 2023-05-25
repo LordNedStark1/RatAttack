@@ -1,5 +1,6 @@
 import secrets
 
+from models.house_properties.House import House
 from models.house_properties.Location import Location
 from models.house_properties.Room import Room
 from models.rats.BigRat import BigRat
@@ -24,7 +25,11 @@ class RatFactory:
         return rat
 
     @staticmethod
-    def load_rats(room: Room, count=0):
+    def load_rats(house: House, count=0):
+        pass
+
+    @staticmethod
+    def load_rat(room: Room, count=0):
         locations = room.get_room_locations()
 
         random_index = secrets.randbelow(5 - 1 + 1) + 1

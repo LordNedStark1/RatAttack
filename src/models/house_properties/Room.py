@@ -20,12 +20,12 @@ class Room:
 
     # Todo method below is to be verified
     def to_dict(self):
+        location_list = []
+        for location in self._room_locations:
+            location_list.append(location.to_dict())
         return {
-            'house_name': self._house_name,
-            'house_id': self._house_id,
-            "player_id": self._player_id,
-            "number_of_rooms": self._total_number_of_rooms,
-            'rooms': [room.__dict__ for room in self._rooms]
+            'room_id': self._room_id,
+            'room_location': location_list
         }
 
     def to_json(self):
