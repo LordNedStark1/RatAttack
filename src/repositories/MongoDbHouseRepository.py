@@ -16,7 +16,7 @@ class MongoDbHouseRepository(HouseRepositoryInterface):
     __instance = None
     __instance_lock = threading.Lock()
     __data_lock = threading.Lock()
-
+    __house_id_counter = 1
     def __init__(self):
         if MongoDbHouseRepository.__instance is not None:
             raise Exception("This class is a singleton!")
@@ -33,6 +33,10 @@ class MongoDbHouseRepository(HouseRepositoryInterface):
             return MongoDbHouseRepository.__instance
 
     def save(self, house_dict):
+
+        house_dict["house_id"] = MongoDbHouseRepository.__house_id_counter
+        MongoDbHouseRepository.__house_id_counter += 1
+
         result = self.collection.insert_one(house_dict)
 
         return result.inserted_id

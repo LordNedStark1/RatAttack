@@ -17,22 +17,18 @@ def converting_house_to_dictionary(house):
 class HouseServiceImpl(HouseServiceInterface):
     mongo_house_repo: MongoDbHouseRepository = MongoDbHouseRepository.get_instance()
     room_service: RoomServiceInterface = RoomServiceImpl()
-    house_id_counter = 1
 
     def creat_new_house(self, player: Player):
         house: House = House()
 
         house.set_house_name(player.get_player_name())
         house.set_player(player)
-        house.set_house_id(self.house_id_counter)
-        self.house_id_counter += 1
 
         for i in range(1, 7):
             created_room = self.room_service.create_new_room()
             created_room.set_room_id(i)
 
             house.set_rooms(created_room)
-
 
         self.__load_rats(house)
 

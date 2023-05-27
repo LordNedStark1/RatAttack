@@ -1,4 +1,3 @@
-
 from unittest import TestCase
 
 from AppUtils.word_generator.WordGenerator import WordGenerator
@@ -19,10 +18,9 @@ class HouseServiceTest(TestCase):
         house_id = self.house_service.creat_new_house(self.player)
         self.assertIsNotNone(self.house_service.find_house_by_id(house_id))
 
-
-    def test_that_the_house_has_at_least_three_rat_at_most_four(self):
+    def test_that_the_house_has_at_least_three_rat_at_most_five(self):
         rat_house = []
-        for i in range (50):
+        for i in range(30):
             count = self.house_creation_method()
             rat_house.append(count)
 
@@ -30,6 +28,11 @@ class HouseServiceTest(TestCase):
         is_rat_up_to_four = False
         is_rat_up_to_five = False
         is_rat_within_one_and_five = False
+        is_rat_up_to_six = False
+
+        for value in rat_house:
+            if value == 6:
+                is_rat_up_to_six = True
 
         for value in rat_house:
             if value == 5:
@@ -45,13 +48,14 @@ class HouseServiceTest(TestCase):
 
         for value in rat_house:
             if value >= 1:
-                if value <=5:
+                if value <= 5:
                     is_rat_within_one_and_five = True
 
         self.assertTrue(is_rat_within_one_and_five)
         self.assertTrue(is_rat_up_to_three)
         self.assertTrue(is_rat_up_to_four)
         self.assertTrue(is_rat_up_to_five)
+        self.assertFalse(is_rat_up_to_six)
 
     def house_creation_method(self):
         self.player.set_player_name(self._generate_name())
@@ -63,7 +67,7 @@ class HouseServiceTest(TestCase):
 
     def check_presence_of_rats(self, house_dict):
         rooms = house_dict.get('rooms')
-        
+
         return self.__is_three_rat_present(rooms)
 
     def __is_three_rat_present(self, rooms):
@@ -87,6 +91,3 @@ class HouseServiceTest(TestCase):
 
     def _generate_name(self):
         return WordGenerator.generate_name()
-
-
-
