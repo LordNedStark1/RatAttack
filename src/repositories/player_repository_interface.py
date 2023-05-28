@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from RatAttack.src.models.player.Player import Player
+from models.player.Player import Player
 
 
 class Player_Repository_Interface(ABC):

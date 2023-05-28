@@ -11,10 +11,10 @@ class LocationFactory:
     @staticmethod
     def populate_location_with_rats():
         rat_list = []
-        for i in range (3):
+        for i in range(3):
             rat_list.append(RatFactory.create_new_rat())
-        # location.set_rats(rat_list)
+
         return rat_list
 
-print (LocationFactory.populate_location_with_rats())
+
 

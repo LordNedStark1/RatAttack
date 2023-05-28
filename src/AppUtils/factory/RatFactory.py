@@ -25,7 +25,10 @@ class RatFactory:
                 rat = MediumRat()
             case 3:
                 rat = BigRat()
-        rat
+
+        rat.set_rat_id(RatFactory.__rat_id)
+        RatFactory.__rat_id += 1
+
         return rat
 
     @staticmethod

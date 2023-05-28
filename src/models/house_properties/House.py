@@ -49,8 +49,8 @@ class House:
             'house_id': self._house_id,
             'player': self._player.to_dict(),
             "number_of_rooms": self._total_number_of_rooms,
-            'rooms': rooms_list,
-            'total_number_of_rats': self._total_number_of_rats
+            'total_number_of_rats': self._total_number_of_rats,
+            'rooms': rooms_list
         }
 
     def to_json(self):

@@ -4,4 +4,4 @@ from models.collectable.health.Health import Health
 class HighHealth(Health):
 
     def supply(self):
-        pass
+        return 50

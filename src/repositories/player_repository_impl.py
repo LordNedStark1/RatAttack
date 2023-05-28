@@ -1,6 +1,6 @@
-from RatAttack.src.AppUtils.Id_generator.id_generator import IdGenerator
-from RatAttack.src.models.player.Player import Player
-from RatAttack.src.repositories.player_repository_interface import Player_Repository_Interface
+from AppUtils.Id_generator.id_generator import IdGenerator
+from models.player.Player import Player
+from repositories.player_repository_interface import Player_Repository_Interface
 
 
 class Player_Repository_Implementation(Player_Repository_Interface):

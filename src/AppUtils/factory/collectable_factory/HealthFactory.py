@@ -6,7 +6,7 @@ from models.collectable.health.HighHealth import HighHealth
 from models.collectable.health.LowHealth import LowHealth
 from models.collectable.health.NoHealth import NoHealth
 
-from models.collectable.money.ZeroNaira import ZeroNaira
+from models.collectable.money.TenNaira import TenNaira
 from models.house_properties.Location import Location
 from models.house_properties.Room import Room
 
@@ -52,7 +52,7 @@ class HealthFactory:
 
 high = HighHealth()
 low = LowHealth()
-money = ZeroNaira()
+money = TenNaira()
 high.type = Collectable.HEALTH
 low.type = Collectable.HEALTH
 money.type = Collectable.MONEY
