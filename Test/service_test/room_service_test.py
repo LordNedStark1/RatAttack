@@ -1,22 +1,22 @@
 from unittest import TestCase
 
 from models.house_properties.Location import Location
-from models.house_properties.Room import Room
-from services.room_service.RoomServiceImpl import RoomServiceImpl
-from services.room_service.RoomServiceInterface import RoomServiceInterface
+from models.house_properties.House import House
+from services.house_service.HouseServiceImpl import HouseServiceImpl
+from services.house_service.HouseServiceInterface import HouseServiceInterface
 
 
 class RoomServiceTest(TestCase):
 
     def setUp(self) -> None:
-        self.room_Service: RoomServiceInterface = RoomServiceImpl()
+        self.room_Service: HouseServiceInterface = HouseServiceImpl()
 
     def test_create_new_room_method(self):
-        created_room: Room = self.room_Service.create_new_room()
+        created_room: House = self.room_Service.create_new_house()
         self.assertIsNotNone(created_room)
 
     def test_room_has_three_rats(self):
-        created_room: Room = self.room_Service.create_new_room()
+        created_room: House = self.room_Service.create_new_house()
         locations: Location = created_room.get_room_locations()
         is_present = self.__is_three_rat_prestent(locations)
         self.assertTrue(is_present)
@@ -32,7 +32,7 @@ class RoomServiceTest(TestCase):
 
 
     def test_health_in_room(self):
-        created_room: Room = self.room_Service.create_new_room()
+        created_room: House = self.room_Service.create_new_house()
         locations: Location = created_room.get_room_locations()
 
 

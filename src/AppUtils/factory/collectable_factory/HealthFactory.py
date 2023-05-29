@@ -8,7 +8,7 @@ from models.collectable.health.NoHealth import NoHealth
 
 from models.collectable.money.TenNaira import TenNaira
 from models.house_properties.Location import Location
-from models.house_properties.Room import Room
+from models.house_properties.House import House
 
 
 class HealthFactory:
@@ -27,7 +27,7 @@ class HealthFactory:
         return health
 
     @staticmethod
-    def load_healths(room: Room, count=0):
+    def load_healths(room: House, count=0):
         locations = room.get_room_locations()
 
         random_index = secrets.randbelow(5 - 1 + 1) + 1
@@ -60,7 +60,7 @@ list = [ money]
 # print(HealthFactory.search(list))
 
 
-room = Room()
+room = House()
 list = []
 
 for i in range(8):

@@ -1,13 +1,12 @@
 from abc import ABC, abstractmethod
 
-from models.player.Player import Player
-
 
 class HouseServiceInterface(ABC):
+
     @abstractmethod
-    def creat_new_house(self, player: Player):
+    def create_new_house(self):
         pass
 
     @abstractmethod
-    def find_house_by_id(self, house_id):
+    def load_collectables(self, room_id):
         pass

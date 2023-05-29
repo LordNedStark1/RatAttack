@@ -1,12 +1,12 @@
 from AppUtils.Id_generator.id_generator import IdGenerator
 from models.player.Player import Player
 from services.PlayerService.PlayerServiceInterface import PlayerServiceInterface
-from services.house_service.HouseServiceImpl import HouseServiceImpl
-from services.house_service.HouseServiceInterface import HouseServiceInterface
+from services.game_service.GameServiceImpl import GameServiceImpl
+from services.game_service.GameServiceInterface import GameServiceInterface
 
 
 class PlayerServiceImpl(PlayerServiceInterface):
-    house_service: HouseServiceInterface = HouseServiceImpl()
+    game_service: GameServiceInterface = GameServiceImpl()
 
     def create_new_player(self, player_name, player_age):
         player = Player()
@@ -16,4 +16,4 @@ class PlayerServiceImpl(PlayerServiceInterface):
 
         player.set_player_id(IdGenerator.generate_player_id())
 
-        return player.get_player_id(), self.house_service.creat_new_house(player)
+        return player.get_player_id(), self.game_service.creat_new_game(player)

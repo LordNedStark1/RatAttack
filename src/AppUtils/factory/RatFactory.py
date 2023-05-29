@@ -1,8 +1,8 @@
 import secrets
 
-from models.house_properties.House import House
+from models.house_properties.Game import Game
 
-from models.house_properties.Room import Room
+from models.house_properties.House import House
 from models.rats.BigRat import BigRat
 from models.rats.MediumRat import MediumRat
 from models.rats.ParentRat import ParentRat
@@ -32,8 +32,8 @@ class RatFactory:
         return rat
 
     @staticmethod
-    def load_rats(house: House, count=0):
-        rooms = house.get_rooms()
+    def load_rats(house: Game, count=0):
+        rooms = house.get_houses()
 
         rooms_index = RatFactory.random_number(5)
         if RatFactory._count_rat_number_in_house(house) < 5:
@@ -53,15 +53,15 @@ class RatFactory:
         house.set_total_number_of_rats(RatFactory._count_rat_number_in_house(house))
         return house
 
-    def _count_rat_number_in_house(house: House):
-        rooms = house.get_rooms()
+    def _count_rat_number_in_house(house: Game):
+        rooms = house.get_houses()
 
         return RatFactory._check_rooms(rooms)
 
     def _check_rooms(rooms):
         count = 0
         for value in rooms:
-            room: Room = value
+            room: House = value
             locations = room.get_room_locations()
 
             count += RatFactory._check_locations(locations)
