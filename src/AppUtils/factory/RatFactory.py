@@ -11,8 +11,9 @@ from models.rats.SmallRat import SmallRat
 
 class RatFactory:
     __rat_id = 1
-    def random_number(range):
-        return secrets.randbelow(range - 1 + 1) + 1
+
+    def random_number(number_range):
+        return secrets.randbelow(number_range - 1 + 1) + 1
 
     @staticmethod
     def create_new_rat():
